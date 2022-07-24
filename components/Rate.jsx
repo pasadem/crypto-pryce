@@ -17,12 +17,12 @@ const Rates = () => {
 	console.log(currency)
   const dispatch = useDispatch();
   const rates = useSelector(selectors.selectAll);
-  
+  console.log(rates)
   useEffect(() => {
-    dispatch(fetchInitialData());
+			dispatch(fetchInitialData())
   }, [dispatch]);
-  
-	const handleSelect = (type, b) => {
+
+  const handleSelect = (type, b) => {
     switch(type) {
      case 'EUR':
        setCurrency(b.EUR);
@@ -34,16 +34,16 @@ const Rates = () => {
        setCurrency(b.GBP)
 			 break;
     }
- }
+  };
 
 	return (
 	<>
 		<Container className='pt-5 pb-3'>
-			<div className="row row-cols-1 row-cols-sm-2 row-cols-md-4">
-				<div className="col">Currency</div>
-				<div className="col">Rate</div>
-				<div className="col">Time updated</div>
-				<div className="col">Select Rate Currency</div>
+			<div className="row font-bold row-cols-1 row-cols-sm-2 row-cols-md-4">
+				<div className="col"><h5>Currency</h5></div>
+				<div className="col"><h5>Rate</h5></div>
+				<div className="col"><h5>Time updated</h5></div>
+				<div className="col"><h5>Select Rate Currency</h5></div>
 			</div>
 		</Container>    
 		<Container>
