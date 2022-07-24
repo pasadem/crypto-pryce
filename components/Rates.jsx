@@ -11,7 +11,7 @@ const Rates = () => {
   const dispatch = useDispatch();
   const rates = useSelector(selectors.selectAll);
   useEffect(() => {
-		dispatch(fetchInitialData())
+	setInterval(() => dispatch(fetchInitialData()), 10000)
   }, [dispatch]);
 
   const handleSelect = (currName, ratesList) => {
