@@ -6,7 +6,7 @@ export default function CurrencySelect({ handleSelect, bpi }) {
 
   useEffect(() => {
     handleSelect(curr, bpi)
-  })
+  });
 
   return (
     <>

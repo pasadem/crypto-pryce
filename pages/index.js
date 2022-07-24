@@ -1,7 +1,7 @@
 import { Navbar, Container } from 'react-bootstrap';
 import { Provider } from 'react-redux';
 import store from '../slices/index.js'
-import Rates from '../components/Rate.jsx'
+import Rates from '../components/Rates.jsx'
 
 export default function Home() {
   return (
