@@ -1,14 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { Provider, useSelector, useDispatch } from 'react-redux';
-import {
-    Button,
-    ButtonGroup,
-    Row,
-		Col,
-    Dropdown,
-    Nav,
-    Container,
-  } from 'react-bootstrap';
+import { useSelector, useDispatch } from 'react-redux';
+import { Col, Container } from 'react-bootstrap';
 import { fetchInitialData, selectors } from '../slices/ratesSlice.js';
 import CurrencySelect from './RateCurrencySelect.jsx';
 
@@ -17,7 +9,6 @@ const Rates = () => {
 	console.log(currency)
   const dispatch = useDispatch();
   const rates = useSelector(selectors.selectAll);
-  console.log(rates)
   useEffect(() => {
 			dispatch(fetchInitialData())
   }, [dispatch]);
@@ -48,7 +39,6 @@ const Rates = () => {
 		</Container>    
 		<Container>
 			{rates.map(({ chartName, time, bpi }, id) => (
-				
 				<div key={id} className="row bg-light row-cols-1 row-cols-sm-2 row-cols-md-4">
 					<div className="col py-2">
 						{chartName}
