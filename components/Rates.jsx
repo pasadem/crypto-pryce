@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import getSymbolFromCurrency from 'currency-symbol-map'
 import { useSelector, useDispatch } from 'react-redux';
 import { Col, Container } from 'react-bootstrap';
 import { fetchInitialData, selectors } from '../slices/ratesSlice.js';
@@ -37,7 +38,7 @@ const Rates = () => {
 					</div>
 					<div className="col py-2">
 						<div className='row'>
-							<Col>{currency.rate}</Col>
+							<Col>{getSymbolFromCurrency(currency.code)}{currency.rate}</Col>
 							<Col>{currency.code}</Col>
 						</div>
 					</div>
