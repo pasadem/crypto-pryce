@@ -2,20 +2,14 @@ import { Navbar, Container } from 'react-bootstrap';
 import { Provider } from 'react-redux';
 import store from '../slices/index.js'
 import Rates from '../components/Rates.jsx'
+import Header from '../components/Header.jsx';
+
 
 export default function Home() {
   return (
     <Provider store={store}>  
-    <Container className=" flex-column p-0 h-100 mw-75">
-        <Navbar collapseOnSelect expand="md" className="navbar navbar-dark bg-dark mb-3 shadow-sm px-5">
-          <Container>
-            <Navbar.Brand href="/">Crypto currency rates</Navbar.Brand>
-          </Container>
-        </Navbar>
-        <Container>
-          <Rates />
-        </Container>
-    </Container>
+      <Header />
+      <Rates />
     </Provider>
   )
 }

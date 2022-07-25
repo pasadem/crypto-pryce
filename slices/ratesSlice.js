@@ -8,8 +8,7 @@ const initialState = ratesAdapter.getInitialState();
 export const fetchInitialData = createAsyncThunk(
   'rates/fetchAll',
   async () => {
-    const  { data }  = await axios.get(`https://api.coindesk.com/v1/bpi/currentprice.json`);
-    console.log(data)
+    const  { data }  = await axios.get(`https://api.coingecko.com/api/v3/coins/`);
     return data;
   }, 
 );
@@ -19,7 +18,11 @@ const ratesSlice = createSlice({
   initialState,
   extraReducers: (builder) => {
     builder
-      .addCase(fetchInitialData.fulfilled, ratesAdapter.setOne)
+      .addCase(fetchInitialData.pending, (state) => {
+      state.loading = 'loading';
+    })
+      .addCase(fetchInitialData.fulfilled, ratesAdapter.setMany)
+      
   },
 });
 
